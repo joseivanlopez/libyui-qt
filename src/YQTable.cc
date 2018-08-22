@@ -25,6 +25,7 @@
 #include <QHeaderView>
 #include <QVBoxLayout>
 #include <QString>
+#include <QFont>
 #define YUILogComponent "qt-ui"
 #include <yui/YUILog.h>
 
@@ -438,6 +439,11 @@ YQTableListViewItem::updateCell( const YTableCell * cell )
 	return;
 
     int column = cell->column();
+
+    QFont wfont( font(column) );
+    wfont.setBold( true );
+    setFont(column, wfont);
+    //setData( column, Qt::FontRole, wfont );
 
     //
     // Set label text
